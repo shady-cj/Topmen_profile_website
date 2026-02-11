@@ -114,21 +114,23 @@ contactForm.addEventListener('submit', (e) => {
     
     // Here you would typically send the data to a server
     console.log('Form submitted:', data);
+    const encodedMessage = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\nMessage: ${data.message}`);
     
-    
-    const mailto = `mailto:olatoyetemitope3182@gmail.com?subject=Website%20Contact&body=Name:%20${data.name}%0AEmail:%20${data.email}%0APhone%20Number:%20${data.phone}%0AService:%20${data.service}%0A%0A${data.message}`;
-    const a = document.createElement('a');
-    a.href = mailto;
-    a.click();
+    const mailto = `mailto:olatoyetemitope3182@gmail.com?subject=Website%20Contact&body=${encodedMessage}`;
+
+    // window.open(mailto, '_blank');
+    window.location.href = mailto;
     
         
     // Reset form
     contactForm.reset();
     
     // Show success message 
-    alert('Thank you for your message! We will get back to you soon.');
+    contactForm.querySelector('button[type="submit"]').textContent = 'Thank you! We\'ll get back to you soon.';
 
-        
+    setTimeout(() => {
+        contactForm.querySelector('button[type="submit"]').textContent = 'Send Message';
+    }, 5000);
  
 });
 
