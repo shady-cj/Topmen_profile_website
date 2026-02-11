@@ -1,0 +1,16 @@
+{
+  "name": "topmen_profile_website",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "description": "Static Website Design for Topmen Integrated Projects Limited a firm that provides comprehensive engineering services for residential, commercial and industrial facilities.",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "devDependencies": {
+    "parcel": "latest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

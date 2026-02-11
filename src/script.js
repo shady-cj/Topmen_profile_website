@@ -189,30 +189,51 @@ cards.forEach(card => {
 });
 
 // Image lazy loading
-const images = document.querySelectorAll('img[data-src]');
 
-const imageObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const img = entry.target;
-            img.src = img.dataset.src;
-            img.removeAttribute('data-src');
-            observer.unobserve(img);
-        }
-    });
-});
 
-images.forEach(img => imageObserver.observe(img));
+// const images = document.querySelectorAll('img[data-src]');
+
+// const loadImage = (img) => {
+//     console.log('Loading image:', img.dataset.src);
+//    console.log('Loading image:', new URL(img.dataset.src, import.meta.url).href);
+//   img.src = img.dataset.src;
+//   img.removeAttribute('data-src');
+// };
+// const imageObserver = new IntersectionObserver((entries, observer) => {
+//     console.log('Observing images for lazy loading...', entries);
+//     entries.forEach(entry => {
+//         console.log('Image entry:', entry);
+//         if (entry.isIntersecting) {
+//             const img = entry.target;
+//             console.log('Loading image:', img);
+//             loadImage(img);
+//             observer.unobserve(img);
+//         }
+//     });
+// },{
+//   rootMargin: '0px 0px 100px 0px', // load a little before image enters viewport
+//   threshold: 0.1 // trigger when 10% visible
+// }
+// );
+
+// images.forEach(img => {
+//     imageObserver.observe(img)
+//     // Edge case: image already visible on load
+//     if (img.getBoundingClientRect().top < window.innerHeight) {
+//         loadImage(img);
+//         imageObserver.unobserve(img);
+//     }
+// });
 
 // Preload critical images
-window.addEventListener('load', () => {
-    const criticalImages = document.querySelectorAll('.hero img, .project-card:nth-child(-n+3) img');
-    criticalImages.forEach(img => {
-        if (img.dataset.src) {
-            img.src = img.dataset.src;
-        }
-    });
-});
+// window.addEventListener('load', () => {
+//     const criticalImages = document.querySelectorAll('.hero img, .project-card:nth-child(-n+3) img');
+//     criticalImages.forEach(img => {
+//         if (img.dataset.src) {
+//             img.src = img.dataset.src;
+//         }
+//     });
+// });
 
 // Add animation delay to grid items
 const gridItems = document.querySelectorAll('.services-grid > *, .projects-grid > *, .testimonials-grid > *');
