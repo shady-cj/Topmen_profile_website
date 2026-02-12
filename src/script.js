@@ -114,9 +114,9 @@ contactForm.addEventListener('submit', (e) => {
     
     // Here you would typically send the data to a server
     console.log('Form submitted:', data);
-    const encodedMessage = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\nMessage: ${data.message}`);
+    const encodedMessage = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nService: ${data.service}\n\nMessage: ${data.message}`);
     
-    const mailto = `mailto:olatoyetemitope3182@gmail.com?subject=Website%20Contact&body=${encodedMessage}`;
+    const mailto = `mailto:olatoyetemitope3182@gmail.com?subject=Service%20Enquiry&body=${encodedMessage}`;
 
     // window.open(mailto, '_blank');
     window.location.href = mailto;

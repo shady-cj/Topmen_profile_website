@@ -561,10 +561,14 @@ section {
 
 .core-activities .section-label {
     color: var(--accent-color);
+    position: relative;
+    z-index: 1;
 }
 
 .core-activities .section-title {
     color: var(--white);
+    position: relative;
+    z-index: 1;
 }
 
 .activities-grid {
